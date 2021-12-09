@@ -1,10 +1,28 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import DialogFactory from "../components/Global/DialogFactory";
+import { useEffect } from "react";
+import { toggleDialog } from "../reducers/DialogReducer";
+import { setUser } from "../reducers/GlobalReducer";
 
 export default function page() {
   const templateList = useSelector((state) => state.template.templates);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    let user = {
+      Username: localStorage.getItem("Username"),
+      Name: localStorage.getItem("Name"),
+      Email: localStorage.getItem("Email"),
+    };
+
+    if (user.Username != null) {
+      dispatch(setUser(user));
+    } else {
+      dispatch(toggleDialog("UserLoginDialog"));
+    }
+  });
   const selTab = useSelector((state) => state.global.tab);
   return (
     <div className="bg-gray-200 h-screen w-screen flex flex-col items-center justify-start">

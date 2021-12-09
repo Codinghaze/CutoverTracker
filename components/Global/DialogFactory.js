@@ -3,6 +3,7 @@ import Dialog from "../Dialog";
 import CreateTemplate from "../Template/CreateTemplate";
 import SelectTemplate from "../Template/SelectTemplateDialog";
 import TemplateDialog from "../Template/TemplateDialog";
+import UserEntryDialog from "./UserEntry";
 
 export default function DialogFactory() {
   var ExceptionHandler = useSelector((state) => state.dialog.exception);
@@ -22,6 +23,9 @@ export default function DialogFactory() {
         <div className="w-full h-36 flex flex-row items-center px-5 rounded text-xl text-white bg-gray-400">
           {ExceptionHandler}
         </div>
+      </Dialog>
+      <Dialog handlesClick dialog="UserLoginDialog">
+        <UserEntryDialog />
       </Dialog>
     </div>
   );
