@@ -1,0 +1,91 @@
+Name : AIMS Mona Lisa Saperstein
+AppName : AIMS
+AppVersion : Release 3.5.223
+Enviornment : PROD
+Date : 11/21/21
+Coordinator : IT Lead
+Tasks :
+  - Title : Pre-Cutover Tasks
+    Spacer: True
+  - Title : Cutover Callout
+    Duration : 5
+    Responsible : IT Lead
+    Start : 11/21/21 12:00 pm
+  - Title : Send Citrix Shutdown Message
+    Duration : 5
+    Responsible : Citrix
+  - Title : Stop Batch Jobs
+    Duration : 5
+    Notes : 
+    Z_PP_PROCESS_PO_IDOC (Chain Job which tigger many variants as mentioned in remarks. All those Jobs tobe stopped)
+    Z_LE_HU_SYNC_SAP_AIMS 
+    Z_LE_HU_SYNCOBJ_SAP_AIMS
+    ZQQN_SYNCDEF_SAP_AIMS
+    Link : 
+    Responsible : DBA
+  - Title : System Shutdown
+    Spacer : True
+  - Title : Cutover Begins Callout
+    Duration : 1
+    Responsible : Wilton Brown
+  - Title : Force Logout all Citrix Users
+    Duration : 10
+    Responsible : Citrix
+  - Title : Take DB Backup
+    Duration : 15
+    Responsible : DBA
+  - Title : Application Migration
+    Spacer : True
+  - Title : Callout Application Migration
+    Duration : 1
+    Responsible : Wilton Brown
+  - Title : SQL Script Deploy
+    Duration : 10
+    Parallel : true
+    Responsible : DBA
+  - Title : Web Services Deploy
+    Duration : 10
+    Parallel : true
+    Responsible : Server
+  - Title : Citrix App Deploy
+    Duration : 10
+    Parallel : true
+    Responsible : Citrix
+  - Title : Application Validation
+    Spacer : True
+  - Title : Callout Application Validation
+    Duration : 1
+    Responsible : Wilton Brown
+  - Title : Reporting Web Services Verification
+    Parallel : true
+    Duration : 5
+    Responsible : Developer
+  - Title : Functional Web Services Verification
+    Parallel : true
+    Duration : 5
+    Responsible : Developer
+  - Title : Application Base Testing
+    Duration : 10
+    Responsible : Application BA
+    Parallel : true
+  - Title : Application Version Validation
+    Duration : 1
+    Responsible : Application BA
+    Parallel : true
+  - Title : Application Smoke Test
+    Parallel : true
+    Duration : 10
+    Responsible : Application User
+  - Title : Email Error Validation
+    Duration : 2
+    Responsible : Developer
+  - Title : Bring System Online
+    Spacer : True
+  - Title : Send Cutover Complete Email
+    Duration : 5
+    Responsible : Citrix
+  - Title : Start SQL Job "bp_eSOC_Import_Job_Item_Trans"
+    Duration : 5 
+    Responsible : DBA
+  - Title : Completed Cutover
+    
